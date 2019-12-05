@@ -1,0 +1,135 @@
+import { Head } from 'mdx-deck'
+import { Image } from 'mdx-deck'
+import { CodeSurfer } from 'mdx-deck-code-surfer'
+import highlighter from 'prism-react-renderer/themes/ultramin';
+export { default as theme } from './theme'
+
+<Head>
+  <title>One Model To Rule Them All</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Raleway:100,300,400,500,700" />
+  <link rel="stylesheet" href="styles.css" />
+</Head>
+
+# One Model To Rule Them All
+
+---
+
+## Hi, I'm David ([@daffl](https://github.com/daffl)), I like
+
+- 💻 Open Source: [FeathersJS](https://feathersjs.com/)
+- 🗺️ Community: [Cowork & Coffee](https://www.meetup.com/codecoffeeyvr/), [Nodeschool](https://nodeschool.io/vancouver/)
+- 🧗‍♂️ Rock Climbing ⛰️
+- 🏭 Industrial music 🔊
+- 🚀 Science Fiction 🤖
+
+---
+
+## Today I'd like to talk about
+
+- The State of JavaScript schemas and models
+- FeathersJS and the Feathers philosophy
+- JavaScript and TypeScript models
+- Demo time!
+
+---
+
+## Models, Schemas everywhere!
+
+- Custom validators
+- SQL
+- TypeScript / TypeOrm
+- GraphQL
+- JSON schema
+- Swagger/OpenApi
+- Sequelize
+- Mongoose
+
+---
+
+## FeathersJS
+
+![Feathers image](./img/key-image-horizontal.png)
+
+Feathers is a web-framework for creating real-time applications and web APIs using JavaScript or TypeScript with Node.JS, React Native and the browser.
+
+---
+
+## Featuring...
+
+- Service-oriented, protocol-independent design
+- Automatic REST APIs
+- Automatic real-time events
+- Universal usage on the client and the server
+- Integrates with any frontend framework like React, Vue, Angular, React Native
+- Easy database integrations (15+ databases and ORMs supported out-of-the-box)
+
+---
+
+<CodeSurfer
+  theme={highlighter}
+  code={require("!raw-loader!./snippets/service-example.js").default}
+  lang="js"
+  showNumbers={false}
+  dark={false}
+/>
+
+---
+
+## E.g. REST APIs
+
+| HTTP method | Service layer method |
+| --- | --- |
+| GET /messages      | messages.find() |
+| GET /messages/1    | messages.get(1) |
+| POST /messages     | messages.create(data) |
+| PUT /messages/1    | messages.update(1, data) |
+| PATCH /messages/1  | messages.patch(1, data) |
+| DELETE /messages/1 | messages.remove(1) |
+
+---
+
+# Can we do this for models?
+
+---
+
+<CodeSurfer
+  theme={highlighter}
+  code={require("!raw-loader!./snippets/user-schema.js").default}
+  lang="js"
+  showNumbers={false}
+  dark={false}
+/>
+
+---
+
+<CodeSurfer
+  theme={highlighter}
+  code={require("!raw-loader!./snippets/user-schema.ts").default}
+  lang="js"
+  showNumbers={false}
+  dark={false}
+/>
+
+---
+
+<CodeSurfer
+  theme={highlighter}
+  code={require("!raw-loader!./snippets/user-todo-schema.ts").default}
+  lang="js"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    {},
+    { range: [3, 14] },
+    { range: [20, 27] },
+    { range: [29, 35] }
+  ]}
+/>
+
+---
+
+# Thank you!
+
+- [@daffl](https://twitter.com/daffl)
+- [feathersjs.com](https://feathersjs.com)
+- [github.com/feathersjs/schema](https://github.com/feathersjs/schema)
