@@ -1,3 +1,3 @@
-# Design Patterns for Modern Web APIs
+# One Schema to rule them all
 
-Slides for "Design Patterns for modern web APIs"
+An introduction to `@feathersjs/schema`.
