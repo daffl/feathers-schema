@@ -1,42 +1,26 @@
-import { Service } from 'feathers-memory';
-import { validate, resolve } from '@feathersjs/schema';
-import { Application, HookContext } from '@feathersjs/feathers';
+import { MongoClient } from 'mongodb';
+import { Service } from 'feathers-mongodb';
+import { errorHandler, Application } from '@feathersjs/express';
 import { User, Todo } from './schema';
+import { validateSchema, runResolve } from './hooks';
 
-const serviceOptions = {
-  paginate: {
+
+export async function services (app: Application) {
+  const client = await MongoClient.connect('mongodb://localhost:27017/feathers');
+  const paginate = {
     default: 10,
     max: 50
-  }
-};
+  };
 
-const validateSchema = (target: any) => {
-  return async (context: HookContext) => {
-    if (context.data) {
-      context.data = await validate(context.data, target);
-    }
-  }
-}
-
-const runResolve = (target: any) => {
-  return async (context: HookContext) => {
-    const { result, method } = context;
-
-    if (method === 'find') {
-      context.result.data = await Promise.all(result.data.map((item: any) =>
-        resolve(item, target, context)
-      ));
-    } else {
-      context.result = await resolve(result, target, context);
-    }
-
-    return context;
-  }
-}
-
-export function services (app: Application) {
-  app.use('/users', new Service(serviceOptions));
-  app.use('/todos', new Service(serviceOptions));
+  app.use('/users', new Service({
+    Model: client.db('feathers').collection('users'),
+    paginate
+  }));
+  
+  app.use('/todos', new Service({
+    Model: client.db('feathers').collection('todos'),
+    paginate
+  }));
 
   app.service('/users').hooks({
     before: {
@@ -55,4 +39,7 @@ export function services (app: Application) {
       all: [ runResolve(Todo) ]
     }
   });
+
+  // Express middleware with a nicer error handler
+  app.use(errorHandler());
 }

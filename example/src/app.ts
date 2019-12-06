@@ -19,8 +19,6 @@ app.configure(express.rest());
 app.configure(socketio());
 // Configure services
 app.configure(services);
-// Express middleware with a nicer error handler
-app.use(express.errorHandler());
 
 // Add any new real-time connection to the `everybody` channel
 app.on('connection', (connection: any) =>

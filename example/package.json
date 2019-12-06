@@ -15,6 +15,11 @@
     "@feathersjs/feathers": "^4.4.1",
     "@feathersjs/schema": "0.0.1-alpha.0",
     "@feathersjs/socketio": "^4.4.1",
-    "feathers-memory": "^4.1.0"
+    "feathers-memory": "^4.1.0",
+    "feathers-mongodb": "^6.1.0",
+    "mongodb": "^3.3.5"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.3.11"
   }
 }

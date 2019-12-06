@@ -6,7 +6,7 @@ import { HookContext } from '@feathersjs/feathers';
 })
 export class User {
   @property()
-  id?: number;
+  id?: string;
 
   @property({
     type: Type.string().email().required()
@@ -27,9 +27,9 @@ export class Todo {
   completed?: boolean;
 
   @property({
-    type: Type.number().integer().required()
+    type: Type.string().required()
   })
-  userId?: number;
+  userId?: string;
 
   @property({
     async resolve (todo: any, context: HookContext) {
