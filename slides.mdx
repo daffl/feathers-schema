@@ -56,17 +56,6 @@ Feathers is a web-framework for creating real-time applications and web APIs usi
 
 ---
 
-## Featuring...
-
-- Service-oriented, protocol-independent design
-- Automatic REST APIs
-- Automatic real-time events
-- Universal usage on the client and the server
-- Integrates with any frontend framework like React, Vue, Angular, React Native
-- Easy database integrations (15+ databases and ORMs supported out-of-the-box)
-
----
-
 <CodeSurfer
   theme={highlighter}
   code={require("!raw-loader!./snippets/service-example.js").default}
@@ -77,7 +66,7 @@ Feathers is a web-framework for creating real-time applications and web APIs usi
 
 ---
 
-## E.g. REST APIs
+## Automatic REST APIs
 
 | HTTP method | Service layer method |
 | --- | --- |
@@ -136,3 +125,35 @@ Feathers is a web-framework for creating real-time applications and web APIs usi
 - [feathersjs.com](https://feathersjs.com)
 - [github.com/daffl/feathers-schema](https://github.com/daffl/feathers-schema)
 - [github.com/feathersjs/schema](https://github.com/feathersjs/schema)
+
+---
+
+## Appendix: Feathers features
+
+- Service-oriented, protocol-independent design
+- Automatic REST APIs
+- Automatic real-time events
+- Universal usage on the client and the server
+- Integrates with any frontend framework like React, Vue, Angular, React Native
+- Easy database integrations (15+ databases and ORMs supported out-of-the-box)
+
+---
+
+## Hooks (Middleware)
+
+Hooks enable re-usable workflows and cross-cutting concerns that can be added to service methods dynamically
+
+- Validation and data pre/post-processing
+- Checking permissions
+- Sending emails or other notifications
+- Logging and profiling
+
+---
+
+<CodeSurfer
+  theme={highlighter}
+  code={require("!raw-loader!./snippets/middleware.js").default}
+  lang="js"
+  showNumbers={false}
+  dark={false}
+/>
